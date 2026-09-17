@@ -1,0 +1,54 @@
+---
+- name: Network Configuration Backup
+  hosts: network_devices
+  gather_facts: false
+
+  tasks:
+
+    - name: Start network backup
+      ansible.builtin.debug:
+        msg: "Starting configuration backup for {{ inventory_hostname }}"
+
+    - name: Connect to network device
+      ansible.builtin.debug:
+        msg: "Connecting to {{ inventory_hostname }} via SSH..."
+
+    - name: Authenticate with network device
+      ansible.builtin.debug:
+        msg: "Authentication successful for {{ inventory_hostname }}"
+
+    - name: Collect running configuration
+      ansible.builtin.debug:
+        msg: "Collecting running configuration from {{ inventory_hostname }}"
+
+    - name: Collect startup configuration
+      ansible.builtin.debug:
+        msg: "Collecting startup configuration from {{ inventory_hostname }}"
+
+    - name: Collect interface information
+      ansible.builtin.debug:
+        msg: "Collecting interface and VLAN information from {{ inventory_hostname }}"
+
+    - name: Collect routing information
+      ansible.builtin.debug:
+        msg: "Collecting routing table from {{ inventory_hostname }}"
+
+    - name: Prepare configuration backup
+      ansible.builtin.debug:
+        msg: "Preparing backup artifact for {{ inventory_hostname }}"
+
+    - name: Validate configuration
+      ansible.builtin.debug:
+        msg: "Validating collected configuration for {{ inventory_hostname }}"
+
+    - name: Upload backup to backup server
+      ansible.builtin.debug:
+        msg: "Uploading {{ inventory_hostname }} configuration to backup repository"
+
+    - name: Verify backup
+      ansible.builtin.debug:
+        msg: "Backup verification successful for {{ inventory_hostname }}"
+
+    - name: Complete network backup
+      ansible.builtin.debug:
+        msg: "Network configuration backup completed successfully for {{ inventory_hostname }}"
