@@ -1,6 +1,6 @@
 ---
 - name: Network Configuration Backup
-  hosts: network_devices
+  hosts: localhost
   gather_facts: false
 
   tasks:
